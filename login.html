@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Log in | RehabAI</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="scroll-reveal.css"></head>
+<body class="auth-page">
+<div class="auth-wrap">
+  <a class="brand auth-brand" href="index.html"><span class="brand-mark">R</span><span>Rehab<span>AI</span></span></a>
+  <div class="auth-card">
+    <div class="auth-intro"><div class="section-kicker">WELCOME BACK</div><h1>Continue your recovery.</h1><p>Log in to access your exercises, sessions and progress.</p></div>
+    <form id="loginForm">
+      <label>Email<input id="loginEmail" type="email" required placeholder="you@example.com"></label>
+      <label>Username<input id="loginUsername" type="text" required placeholder="Your username"></label>
+      <label>Password<input id="loginPassword" type="password" required placeholder="Your password"></label>
+      <div class="form-row"><label class="check"><input type="checkbox"> Remember me</label><a href="#" id="forgotLink">Forgot password?</a></div>
+      <button class="btn btn-primary full" type="submit">Log in</button>
+      <div id="loginMsg" class="form-message"></div>
+    </form>
+    <p class="switch">Don't have an account? <a href="signup.html">Create one</a></p>
+  </div>
+  <p class="auth-note">Prototype authentication is local for demonstration. Connect Firebase/Supabase before production use.</p>
+</div>
+<script src="auth.js"></script></body></html>

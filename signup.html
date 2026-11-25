@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create account | RehabAI</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="scroll-reveal.css"></head>
+<body class="auth-page">
+<div class="auth-wrap">
+  <a class="brand auth-brand" href="index.html"><span class="brand-mark">R</span><span>Rehab<span>AI</span></span></a>
+  <div class="auth-card">
+    <div class="auth-intro"><div class="section-kicker">GET STARTED</div><h1>Create your RehabAI account.</h1><p>Your account keeps your rehabilitation data separated and organized.</p></div>
+    <form id="signupForm">
+      <label>Full name<input id="fullName" type="text" required placeholder="Your full name"></label>
+      <label>Username<input id="username" type="text" required minlength="3" placeholder="Choose a username"></label>
+      <label>Email<input id="email" type="email" required placeholder="you@example.com"></label>
+      <label>Password<input id="password" type="password" required minlength="6" placeholder="At least 6 characters"></label>
+      <label>Confirm password<input id="confirmPassword" type="password" required placeholder="Repeat your password"></label>
+      <button class="btn btn-primary full" type="submit">Create account</button>
+      <div id="signupMsg" class="form-message"></div>
+    </form>
+    <p class="switch">Already have an account? <a href="login.html">Log in</a></p>
+  </div>
+  <p class="auth-note">Prototype authentication is local for demonstration. A production version should use a real authentication provider.</p>
+</div>
+<script src="auth.js"></script></body></html>

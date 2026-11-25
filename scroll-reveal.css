@@ -1,0 +1,66 @@
+/* ===== Scroll reveal + hover effects for RehabAI ===== */
+html,body{overflow-x:hidden}
+
+/* Sections with a direction: their children animate in (the section itself stays put so backgrounds don't slide) */
+.reveal-left>*,.reveal-right>*,.reveal-up>*,.reveal-scale>*,.reveal-card-group>*{
+  opacity:0;
+  transition:
+    opacity .8s ease var(--d,0s),
+    translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),
+    scale .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease,
+    background-color .3s ease;
+}
+.reveal-left>*{translate:-56px 0}
+.reveal-right>*{translate:56px 0}
+.reveal-up>*{translate:0 40px}
+.reveal-scale>*{translate:0 24px;scale:.94}
+.reveal-card-group>*{translate:0 44px}
+
+.reveal-left.visible>*,.reveal-right.visible>*,.reveal-up.visible>*,
+.reveal-scale.visible>*,.reveal-card-group.visible>*{opacity:1;translate:0 0;scale:1}
+
+/* stagger */
+[class*="reveal-"]>*:nth-child(2){--d:.12s}
+[class*="reveal-"]>*:nth-child(3){--d:.24s}
+[class*="reveal-"]>*:nth-child(4){--d:.36s}
+[class*="reveal-"]>*:nth-child(5){--d:.48s}
+
+/* Middle exercise card: identical to the others */
+.exercise-card.featured{transform:none;background:#111f39;border-color:rgba(255,255,255,.1);box-shadow:none}
+
+/* ===== Hover effects (only on devices that really hover) ===== */
+.btn{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease}
+.site-nav nav a{position:relative;padding:6px 0}
+.site-nav nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.text-link span{display:inline-block;transition:transform .25s ease}
+.flow-card,.device-card,.panel,.stats>div,.exercise-row,.metrics>div{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.exercise-illustration{transition:transform .4s ease}
+.exercise-card a{transition:transform .25s ease}
+
+@media (hover:hover){
+  .site-nav nav a:hover::after{transform:scaleX(1)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:var(--teal);transform:translateY(-2px)}
+  .btn-light:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.25)}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(11,20,38,.3)}
+  .text-link:hover span{transform:translateY(5px)}
+
+  .flow-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(11,20,38,.14)}
+  .device-card:hover{transform:translateY(-6px)}
+
+  .exercise-card:hover{transform:translateY(-8px);border-color:rgba(50,209,176,.55);box-shadow:0 26px 60px rgba(0,0,0,.35)}
+  .exercise-card:hover .exercise-illustration{transform:scale(1.1) rotate(-6deg)}
+  .exercise-card:hover a{transform:translateX(6px)}
+
+  .feature:hover{transform:translateY(-6px);border-top-color:var(--teal);background-color:#f4f7f6}
+
+  .panel:hover,.stats>div:hover,.exercise-row:hover,.metrics>div:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal-left>*,.reveal-right>*,.reveal-up>*,.reveal-scale>*,.reveal-card-group>*{
+    opacity:1!important;translate:none!important;scale:none!important;transform:none!important;transition:none!important}
+}
